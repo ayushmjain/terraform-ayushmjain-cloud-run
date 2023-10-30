@@ -1,0 +1,53 @@
+inputs:
+- name: project
+  isGlobal: true
+- name: region
+  isGlobal: true
+- name: backend_service_endpoint
+  isGlobal: false
+  connections:
+  - componentID: cloud-run
+    output: service_endpoint
+- name: cloud_run_sa_id
+  isGlobal: false
+- name: cloud_run_service_image
+  isGlobal: false
+- name: cloud_run_service_name
+  isGlobal: false
+- name: redis_host
+  isGlobal: false
+  connections:
+  - componentID: redis
+    output: redis_host
+- name: redis_port
+  isGlobal: false
+  connections:
+  - componentID: redis
+    output: redis_port
+- name: sql_database_connection
+  isGlobal: false
+  connections:
+  - componentID: cloud-sql
+    output: database_connection_name
+- name: sql_database_host
+  isGlobal: false
+  connections:
+  - componentID: cloud-sql
+    output: database_host
+- name: sql_database_name
+  isGlobal: false
+  connections:
+  - componentID: cloud-sql
+    output: database_name
+- name: vpc_access_connector_id
+  isGlobal: false
+  connections:
+  - componentID: compute-network
+    output: vpc_access_connector_id
+- name: cloud_run_dependency
+  isGlobal: false
+  connections:
+  - componentID: cloud-sql
+    output: cloud_run_dependency
+- name: vpc_access_egress
+  isGlobal: false
